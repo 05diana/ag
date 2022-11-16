@@ -3,8 +3,7 @@
 ![Architecture](images/1.drawio.svg)
 
 ## Metrics for Components
-### Lambda
-[[+]](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-lambda-monitoring-integration/)
+### [[+]](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-lambda-monitoring-integration/) Lambda
 - concurrentExecutions
 - deadLetterErrors
 - duration

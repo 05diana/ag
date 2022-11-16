@@ -11,16 +11,14 @@
 - invocations
 - iteratorAge
 - throttles
-### API Gateway
-[[+]](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-api-gateway-monitoring-integration/)
+### [[+]](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-api-gateway-monitoring-integration/) API Gateway
 - CacheHitCount
 - CacheMissCount
 - Count
 - IntegrationLatency
 - Latency
 
-### API RESTful
-[[+]](https://docs.newrelic.com/docs/apis/rest-api-v2/get-started/introduction-new-relic-rest-api-v2/)
+### [[+]](https://docs.newrelic.com/docs/apis/rest-api-v2/get-started/introduction-new-relic-rest-api-v2/) API RESTful
 - JMV (APM)
 - Health Checks Ports
   - Ports
@@ -29,8 +27,7 @@
 -  Response Time
 - Retries
 
-### Kafka
-[[+]](https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/kafka/kafka-integration/)
+### [[+]](https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/kafka/kafka-integration/) Kafka
 - number of brokers
 - broker bytes
 - messages per sec
@@ -46,8 +43,7 @@
 - ServerCnxn
 - DataTree
 
-### RabbitMQ
-[[+]](https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/rabbitmq-monitoring-integration/)
+### [[+]](https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/rabbitmq-monitoring-integration/) RabbitMQ
 - Total Used File Descriptors by Node
 - Total Memory Usage by Node
 - Consumers by Queue
@@ -57,8 +53,7 @@
 - Published Messages by Queue
 - Published Messages Throughput by Queue
 
-### MongoDB
-[[+]](https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/mongodb-monitoring-integration/)
+### [[+]](https://docs.newrelic.com/docs/infrastructure/host-integrations/host-integrations-list/mongodb-monitoring-integration/) MongoDB
 - collection.avgObjSizeInBytes
 - collection.capped
 - collection.count

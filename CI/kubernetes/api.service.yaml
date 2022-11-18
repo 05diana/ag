@@ -24,9 +24,11 @@ spec:
     spec:
       containers:
       - name: api
-        image: 06ampolleta/vaiyaexe:latest
+        #image: 06ampolleta/haiyaexe:latest # with haproxy
+        image: 06ampolleta/vaiyaexe:latest # without haproxy
         ports:
-        - containerPort: 5000
+        # - containerPort: 80   # with haproxy
+        - containerPort: 5000 # without haproxy
         env:
           - name: API_WORKERS
             value: "2"
@@ -42,6 +44,7 @@ spec:
   selector:
     app: api
   ports:
-    - port: 5000
+    # - port: 80 # with haproxy
+    - port: 5000 # without haproxy
       targetPort: 5000
   type: LoadBalancer

@@ -2,10 +2,8 @@
 version: '0.1'
 services:
   api:
-    image: api
+    image: 06ampolleta/vaiyaexe:latest
     restart:  always
     container_name: api
-    build:
-      dockerfile: Dockerfile
     ports:
       - "5000:5000"

@@ -1,13 +1,35 @@
 ---
-version: '0.1'
+version: '0.2'
 services:
+#  api:
+#    # Flask Native
+#    image: 06ampolleta/faiyaexe:latest
+#    restart:  always
+#    container_name: api
+#    ports:
+#      - "5000:5000"
+#    environment:
+#      - "API_WORKERS=8"
   api:
-    #image: 06ampolleta/haiyaexe:latest
+    # with gunicorn
     image: 06ampolleta/vaiyaexe:latest
     restart:  always
     container_name: api
     ports:
-      #- "5000:80"
       - "5000:5000"
     environment:
-      - "API_WORKERS=2"
+      - "API_WORKERS=8"
+#  api:
+#    # with haproxy
+#    image: 06ampolleta/haiyaexe:latest
+#    restart:  always
+#    container_name: api
+#    ports:
+#      - "5000:80"
+#    environment:
+#      - "API_WORKERS=8"
+#  tester:
+#    image: kalilinux/kali-rolling
+#    container_name: test
+#    stdin_open: true
+#    tty: true

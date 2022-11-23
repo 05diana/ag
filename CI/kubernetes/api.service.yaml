@@ -1,10 +1,5 @@
 
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: api
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -24,10 +19,8 @@ spec:
     spec:
       containers:
       - name: api
-        #image: 06ampolleta/haiyaexe:latest # with haproxy
-        image: 06ampolleta/vaiyaexe:latest # without haproxy
+        image: 06ampolleta/haiyaexe:latest
         ports:
-        # - containerPort: 80   # with haproxy
         - containerPort: 5000 # without haproxy
         env:
           - name: API_WORKERS
@@ -44,7 +37,6 @@ spec:
   selector:
     app: api
   ports:
-    # - port: 80 # with haproxy
-    - port: 5000 # without haproxy
+    - port: 5000
       targetPort: 5000
   type: LoadBalancer

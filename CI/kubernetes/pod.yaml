@@ -1,0 +1,16 @@
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    environment: prod
+  name: tester
+  namespace: api
+spec:
+  containers:
+  - name: tester
+    stdin: true
+    tty: true
+    image: kalilinux/kali-rolling
+

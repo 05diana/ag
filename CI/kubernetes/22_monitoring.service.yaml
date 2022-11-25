@@ -1,0 +1,17 @@
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: monitoring
+  name: prometheu-service
+  annotations:
+    metallb.universe.tf/address-pool: production-public-ips
+spec:
+  selector:
+    app.kubernetes.io/name: prometheus
+  ports:
+    - port: 9090
+      targetPort: 9090
+  type: LoadBalancer

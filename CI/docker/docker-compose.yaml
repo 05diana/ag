@@ -60,6 +60,6 @@ services:
 
   tester:
     image: kalilinux/kali-rolling
-    container_name: test
+    container_name: tester
     stdin_open: true
     tty: true

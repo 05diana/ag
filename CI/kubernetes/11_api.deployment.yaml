@@ -1,0 +1,63 @@
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  namespace: api
+  labels:
+    app: api
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api
+        image: 06ampolleta/haiyaexe:latest
+        imagePullPolicy: Always
+        livenessProbe:
+          initialDelaySeconds: 2
+          periodSeconds: 5
+          timeoutSeconds: 1
+          successThreshold: 1
+          failureThreshold: 1
+          httpGet:
+            path: /hello
+            port: 5000
+            httpHeaders:
+              - name: content-type
+                value: application/json
+        ports:
+        - containerPort: 5000
+        resources:
+          limits:
+            cpu: 200m
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        securityContext:
+          readOnlyRootFilesystem: false
+        volumeMounts:
+          - mountPath: /tmp
+            name: tmp-storage
+            readOnly: false
+          - mountPath: /run/haproxy
+            name: var-run-storage
+            readOnly: false
+        env:
+          - name: API_WORKERS
+            value: "2"
+      nodeSelector:
+        kubernetes.io/os: linux
+      volumes:
+        - emptyDir: {}
+          name: tmp-storage
+        - emptyDir: {}
+          name: var-run-storage

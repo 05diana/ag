@@ -1,16 +1,18 @@
-FROM python
+FROM python:3-slim-bullseye
 
-ARG API_WORKERS 2
-
-RUN git clone https://github.com/05diana/ag.git && \
+ENV API_WORKERS 2
+RUN apt update && apt upgrade -y && apt install -y git haproxy && \
+ git clone https://github.com/05diana/ag.git && \
  useradd -M -c user -g nogroup -u 5000 -d /ag/api -s /usr/sbin/nologin user && \
- chmod +x /ag/api/entrypoint.sh && \
- cd /ag/api && python -m venv venv_api && \
+ cd /ag/api && \
+ chmod +x proxy.entrypoint.sh && \
+ cp --backup haproxy.cfg /etc/haproxy/haproxy.cfg && \
+ mkdir -m 700 /run/haproxy && \
+ python -m venv venv_api && \
  . ./venv_api/bin/activate && \
  pip install --upgrade pip && \
  pip install --no-cache-dir -r requirements.txt && \
  deactivate
 
-USER user
 EXPOSE 5000
-CMD ["/ag/api/entrypoint.sh"]
+CMD ["/ag/api/proxy.entrypoint.sh"]

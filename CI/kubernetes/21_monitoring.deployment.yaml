@@ -43,6 +43,11 @@ spec:
           requests:
             cpu: 100m
             memory: 200Mi
+        securityContext:
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - ALL
         volumeMounts:
           - mountPath: /tmp
             name: tmp-storage

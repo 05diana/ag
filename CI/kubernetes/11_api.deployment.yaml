@@ -6,16 +6,22 @@ metadata:
   name: api-deployment
   namespace: api
   labels:
-    app: api
+    app.kubernetes.io/framework: app
+    app.kubernetes.io/component: core
+    app.kubernetes.io/name: api
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
-      app: api
+      app.kubernetes.io/framework: app
+      app.kubernetes.io/component: core
+      app.kubernetes.io/name: api
   template:
     metadata:
       labels:
-        app: api
+        app.kubernetes.io/framework: app
+        app.kubernetes.io/component: core
+        app.kubernetes.io/name: api
     spec:
       containers:
       - name: api

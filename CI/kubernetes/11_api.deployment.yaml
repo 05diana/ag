@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: 06ampolleta/0haiyaexe:latest
+        image: 06ampolleta/haiyaexe:latest
         imagePullPolicy: Always
         livenessProbe:
           initialDelaySeconds: 2

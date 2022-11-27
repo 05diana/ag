@@ -101,11 +101,11 @@ You can use **curl** or any other API RESful testing tool that supports GET meth
 ```console
 kubectl apply -k https://github.com/05diana/ag
 ```
-### Testing [curl](https://curl.se)
+### Testing with [curl](https://curl.se)
 ```console
-curl -XGET http://localhost:5000/hello
+curl -XGET http://localhost:5000/hello|jq
 ```
-### Stress Testing [ab](https://httpd.apache.org/docs/2.4/programs/ab.html)
+### Stress Testing with [ab](https://httpd.apache.org/docs/2.4/programs/ab.html)
 you can use **Apache Benchmark** or any other tool for performance and stress testing for http protocol.
 
 ```console

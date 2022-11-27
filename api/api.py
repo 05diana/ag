@@ -3,6 +3,7 @@
 
 from flask import Flask
 from flask_restful import Api, Resource
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 api = Api(app)
@@ -12,8 +13,10 @@ class HelloWorld(Resource):
 		data={"data":"Hello World!"}
 		return data
 
-api.add_resource(HelloWorld,'/hello')
+csrf = CSRFProtect()
+csrf.init_app(app)
 
+api.add_resource(HelloWorld,'/hello')
 
 if __name__=='__main__':
 	app.run(debug=False)

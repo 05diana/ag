@@ -13,18 +13,18 @@ For the networking design strategy, I propose for the VPC, A network 10.100.0.0/
 ### Networking strategy
 ![Design](images/design-b.drawio.svg)
 
-|VPC|10.100.0.0/19|
-|:---:|:---|
+|#Net|VPC 10.100.0.0/19|
+|:---|:---|
 |8|Total Subnet|
 |3|Public Subnet|
 |5|Private Subnet|
 
 |Network|CIDR|
-|:---:|:---|
+|:---|:---|
 |Monitoring|10.100.32.0/22|
 |Production|10.100.32.0/24|
 |QA        |10.100.34.0/24|
-|BCP/Growth<br />|10.100.33.0/24 <br /> 10.100.35.0/24|
+|BCP/Growth<br />\ |10.100.33.0/24 <br /> 10.100.35.0/24|
 
 **Nota:**
 The /19 network allows 8 subnets with a number of elements of 254.
@@ -97,11 +97,11 @@ This network is suitable for a small architecture with multiple environments. If
 ![Architecture](images/design-c.drawio.svg)
 
 ### Deployment
-You can use **curl** or any other API RESful testing tool that supports GET method and http protocol.
 ```console
 kubectl apply -k https://github.com/05diana/ag
 ```
 ### Testing with [curl](https://curl.se)
+You can use **curl** or any other API RESful testing tool that supports GET method and http protocol.
 ```console
 curl -XGET http://localhost:5000/hello|jq
 ```

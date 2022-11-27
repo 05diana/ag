@@ -54,7 +54,6 @@ spec:
             drop:
               - ALL
             add:
-              - MKNOD
               - CHOWN
               - SETGID
               - SETUID

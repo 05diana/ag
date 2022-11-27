@@ -1,3 +1,6 @@
+# SobarQube
+.scannerwork/
+
 # stress test
 concurrency*.api_worker*.docker.*
 concurrency*.api_worker*.kubernetes.*

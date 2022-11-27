@@ -1,0 +1,10 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ./CI/kubernetes/00_namespace.yaml
+  - ./CI/kubernetes/11_api.deployment.yaml
+  - ./CI/kubernetes/12_api.service.yaml
+  - ./CI/kubernetes/20_monitoring.config.yaml
+  - ./CI/kubernetes/21_monitoring.deployment.yaml
+  - ./CI/kubernetes/22_monitoring.service.yaml

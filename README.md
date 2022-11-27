@@ -97,7 +97,7 @@ This network is suitable for a small architecture with multiple environments. If
 ![Architecture](images/2a.svg)
 
 ### Deployment
-You can use **curl** or any other APIRESful testing tool that supports GET method and http protocol
+You can use **curl** or any other API RESful testing tool that supports GET method and http protocol
 ```console
 kubectl apply -k https://github.com/05diana/ag
 ```

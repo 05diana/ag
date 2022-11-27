@@ -1,7 +1,34 @@
 # Proof of concept for APPG
-## part 1
+## Part1
+
+I propose to implement the project as serverless for API Runtime and API Gateway, AWS Systems Manager for kafka and MongoDB Atlas, MSK for Apache Kafka, Finally ECS Fargate for RabbitMQ.
+
+For observability, I propose to implement procas metrics for each service and the use of a tool such as New Relic or Dynatrace.
+
+For the networking design strategy, I propose for the VPC, A network 10.100.0.0/19, one subnet for monitoring, 10.100.32.0/22 and fourth subnet for product, BCP and Growth.
+
 ### Solution Architecture
-![Architecture](images/1.drawio.svg)
+![Architecture](images/1a.svg)
+
+### Networking strategy
+![Design](images/1b.svg)
+
+|VPC|10.100.0.0/19|
+|:---:|:---|
+|8|Total Subnet|
+|3|Public Subnet|
+|5|Private Subnet|
+
+|Network|CIDR|
+|:---:|:---|
+|Monitoring|10.100.32.0/22|
+|Production|10.100.32.0/24|
+|QA        |10.100.34.0/24|
+|BCP/Growth|10.100.33.0/24 <br /> 10.100.35.0/24|
+
+**Nota:**
+The /19 network allows 8 subnets with a number of elements of 254.
+This network is suitable for a small architecture with multiple environments. If you need to increase the number of services, I recommend expanding the network to /16 with subnets /19, with 8190 each subnet.
 
 ### Metrics for Components
 #### [[+]](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-lambda-monitoring-integration/) Lambda
@@ -65,3 +92,26 @@
 * commands.insertPerSecond
 * connections.current
 * connections.available
+
+## Part2
+![Architecture](images/2a.svg)
+
+### Deployment
+You can use **curl** or any other APIRESful testing tool that supports GET method and http protocol
+```console
+kubectl apply -k https://github.com/05diana/ag
+```
+### Testing [curl](https://curl.se)
+```console
+curl -XGET http://localhost:5000/hello
+```
+### Stress Testing [ab](https://httpd.apache.org/docs/2.4/programs/ab.html)
+you can use **Apache Benchmark** or any other tool for performance and stress testing for http protocol.
+
+```console
+ab -n200 -c1|4|25|50 https://localhost:5000/hello
+```
+```shell
+-n requests     Number of requests to perform
+-c concurrency  Number of multiple requests to make at a time
+```

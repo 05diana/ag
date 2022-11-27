@@ -8,10 +8,10 @@ For observability, I propose to implement procas metrics for each service and th
 For the networking design strategy, I propose for the VPC, A network 10.100.0.0/19, one subnet for monitoring, 10.100.32.0/22 and fourth subnet for product, BCP and Growth.
 
 ### Solution Architecture
-![Architecture](design-a.drawio.svg)
+![Architecture](images/design-a.drawio.svg)
 
 ### Networking strategy
-![Design](design-b.drawio.svg)
+![Design](images/design-b.drawio.svg)
 
 |VPC|10.100.0.0/19|
 |:---:|:---|
@@ -94,10 +94,10 @@ This network is suitable for a small architecture with multiple environments. If
 * connections.available
 
 ## Part2
-![Architecture](design-c.drawio.svg)
+![Architecture](images/design-c.drawio.svg)
 
 ### Deployment
-You can use **curl** or any other API RESful testing tool that supports GET method and http protocol
+You can use **curl** or any other API RESful testing tool that supports GET method and http protocol.
 ```console
 kubectl apply -k https://github.com/05diana/ag
 ```
@@ -112,6 +112,6 @@ you can use **Apache Benchmark** or any other tool for performance and stress te
 ab -n200 -c1|4|25|50 https://localhost:5000/hello
 ```
 ```shell
--n requests     Number of requests to perform
--c concurrency  Number of multiple requests to make at a time
+-n requests     Number of requests to perform.
+-c concurrency  Number of multiple requests to make at a time.
 ```

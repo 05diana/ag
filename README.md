@@ -8,10 +8,10 @@ For observability, I propose to implement procas metrics for each service and th
 For the networking design strategy, I propose for the VPC, A network 10.100.0.0/19, one subnet for monitoring, 10.100.32.0/22 and fourth subnet for product, BCP and Growth.
 
 ### Solution Architecture
-![Architecture](images/1a.svg)
+![Architecture](design-a.drawio.svg)
 
 ### Networking strategy
-![Design](images/1b.svg)
+![Design](design-b.drawio.svg)
 
 |VPC|10.100.0.0/19|
 |:---:|:---|
@@ -24,7 +24,7 @@ For the networking design strategy, I propose for the VPC, A network 10.100.0.0/
 |Monitoring|10.100.32.0/22|
 |Production|10.100.32.0/24|
 |QA        |10.100.34.0/24|
-|BCP/Growth|10.100.33.0/24 <br /> 10.100.35.0/24|
+|BCP/Growth<br />|10.100.33.0/24 <br /> 10.100.35.0/24|
 
 **Nota:**
 The /19 network allows 8 subnets with a number of elements of 254.
@@ -94,7 +94,7 @@ This network is suitable for a small architecture with multiple environments. If
 * connections.available
 
 ## Part2
-![Architecture](images/2a.svg)
+![Architecture](design-c.drawio.svg)
 
 ### Deployment
 You can use **curl** or any other API RESful testing tool that supports GET method and http protocol
